@@ -1,7 +1,7 @@
 # curso-js-tdd
 *Exercícios e resumos das aulas do Curso JS com TDD na Prática* 
 
-**Boas práticas**
+**Seção 1: Boas práticas**
 
 1. Criar repositório no Github e iniciando git.
 2. Criar conta no Npm e configurar o package.json do projeto de estudo com nome, email, licença, etc. 
@@ -14,3 +14,15 @@
 9. Criar arquivo `.editorconfig` com as configurações para as IDEs se basearem para formatar os arquivos e instalar o editorconfig na IDE, `https://editorconfig.org/`, se já não for.
 10. Adicionar scripts na key "script" no package.json para facilitar a execução de códigos. Por exemplo: `script: { lint: ./node_modules/.bin/eslint src/*.js }`, rodando apenas com `npm run lint`.
 11. Instalar Husky (`https://github.com/typicode/husky`) para rodar tasks automatizadas quando executados hooks do Git (precommit, prepush, etc.) (`https://git-scm.com/book/it/v2/Customizing-Git-Git-Hooks`). Rodar `npm install husky --save-dev` para instalar. Para utilizar é preciso apenas incluir na key scripts do package.json algum dos hooks disponíveis e no value a string do comando que é para rodar quando for disparado o hook. Caso ocorra algum erro na execução do script, o comando do git não será executado. Dica: evitar utilizar o pre-commit, porque pode estar incompleto o código e quebrando ao commitar propositalmente e daí não vai ser possível fazer o commmit, sendo indicado utilizar pre-push no lugar. Exercício: incluir `scripts: { prepush: 'npm run lint'}` no package.json.
+
+
+**Seção 2: Aprendendo ES6**
+
+1. Site para conhecer todas as features do ES6, comparar ES5 e ES6 e ver exemplos: `http://es6-features.org/`. Tabelas de compatibilidade das features dp ES6 nos navegadores, consultar quais navegadores tem suporte para cada feature do ES6: `http://kangax.github.io/compat-table/es6/`. Blogs para ler sobre e ver exemplos de ES6: `https://ponyfoo.com/articles/tagged/es6-in-depth` e `https://nipher.io/blog/`.  
+2. As variáveis declaradas com "var" tem escopo global ou de função, se declarada dentro de uma função. Não importando se estão dentro de um bloco.
+3. Já variáveis let tem escopo de bloco. Existindo apenas dentro de um bloco de if, por exemplo.
+4. A variável const só pode ser declarada uma vez e não pode ser reatribuída. Sendo possível apenas alterar values e acrescentar novas keys ao objeto const. Para que uma variável seja imutável é necessário fazer Object.freeze(variavelName);
+5. Hosting é a ação que o Javascript faz na leitura do código e pega todas variáveis declaradas com "var" e declara no top. Assim não dá erro de falta de declaração, se a variável for usada antes de declarada. Mas com "let" esse Hosting não ocorre e a falta da declaração vai estourar erro.
+6. Arrow Functions: function() {} para () => {}, () => "retorna sozinho se for apenas uma linha" e não precisa dos parênteses se tiver apenas um parâmetro param => "Retorno": + param.
+7. Arrow Function tem o this com comportamento diferente da função comum. Na função normal o this é o objeto em que ele é chamado dentro. Na Arrow Function é o contexto da função mais abrangente.
+
